@@ -1,17 +1,17 @@
-#include <stdlib.h>	/* exit() */
-#include <fcntl.h>	/* open() */
+#include <stdlib.h>
+#include <fcntl.h>
+#include <stdio.h>
 
-char *workfile = “junk”;
 
-main()
+int main()
 {
     int fd;
-    fd = open(file_path, O_RDWR);
+    fd = open("/mnt/btrfs_mount/text_file.txt", O_RDONLY | O_CREAT);
+    printf("fd = %d\n", fd);
     if( fd == -1 )
     {
-        printf(“Couldn’t open %s\n”, workfile);
+        printf("Could not open file!");
         exit(1);
     }
-
     exit(0);
 }
